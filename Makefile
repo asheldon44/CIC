@@ -4,10 +4,10 @@ cwd = ${shell pwd}
 OPT=
 
 sim:
-	python ./generateinput.py
-	iverilog -o CIC.vvp CIC_tb.v 
-	vvp CIC.vvp
-	python ./analyze_output.py
+	python ./analysis_src/generateinput.py
+	iverilog -o ./data/CIC.vvp ./verilog_src/CIC_tb.v 
+	vvp ./data/CIC.vvp
+	python ./analysis_src/analyze_output.py
 
 gtk:
-	gtkwave ./signals.vcd
+	gtkwave ./data/signals.vcd
