@@ -4,7 +4,7 @@ module CIC #(parameter width = 31)
 			(input wire               clk,
 			input wire               rst,
 			input wire        [15:0] decimation_ratio,
-			input wire signed  d_in,
+			input wire  d_in,
 			output reg signed [30:0]  d_out,
 			output reg 				 d_clk);
 
