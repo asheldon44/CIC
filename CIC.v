@@ -1,16 +1,14 @@
-`timescale 1ns/1ns
+`timescale 10ps/10ps
 
-
-module CIC #(parameter width = 12)
+module CIC #(parameter width = 31)
 			(input wire               clk,
 			input wire               rst,
 			input wire        [15:0] decimation_ratio,
-			input wire signed [7:0]  d_in,
-			output reg signed [7:0]  d_out,
+			input wire signed  d_in,
+			output reg signed [30:0]  d_out,
 			output reg 				 d_clk);
 
 reg signed [width-1:0] d_tmp, d_d_tmp;
-
 
 // Integrator stage registers
 
@@ -33,7 +31,6 @@ reg [15:0] count;
 reg v_comb;  // Valid signal for comb section running at output rate
 
 reg d_clk_tmp;
-
  
 	always @(posedge clk)
 	begin
