@@ -11,3 +11,8 @@ sim:
 
 gtk:
 	gtkwave ./data/signals.vcd
+
+clean:
+	rm ./data/CIC.vvp
+	rm ./data/signals.vcd
+	rm ./data/bitstream.txt	
