@@ -27,8 +27,8 @@ module CIC_tb;
 		dec_clk <= 1'b0;
 		rst <= 1'b0;
 		d_in <= 1'b0;
-		x_in <= $fopen("bitstream.txt","r");
-		$dumpfile("signals.vcd"); // Name of the signal dump file
+		x_in <= $fopen("./data/bitstream.txt","r");
+		$dumpfile("./data/signals.vcd"); // Name of the signal dump file
     	$dumpvars(0, CIC_tb); // Signals to dump
 	end 
 	
