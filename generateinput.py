@@ -11,7 +11,7 @@ duration = 10e-3  # Duration of the signal (1 ms)
 t = np.arange(0, duration, 1/fs)
 
 # Generate sine wave
-sine_wave = 0.25 * np.sin(2 * np.pi * f * t) + 0.5
+sine_wave = 0.5 * np.sin(2 * np.pi * f * t) + 0.5
 
 # Delta-Sigma Modulation
 integrator = 0

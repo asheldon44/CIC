@@ -25,16 +25,16 @@ def sign_extend(bit_string, new_length):
 
 vcd = VCDVCD('signals.vcd')
 
-out = vcd['CIC_tb.d_out[30:0]']
+out = vcd['CIC_tb.d_out[23:0]']
 tv = out.tv
 
 time = [float(row[0])*float(vcd.timescale["timescale"]) for row in tv]
 data = [row[1] for row in tv]
 
 data = ['0' if element == 'x' else element for element in data]
-data = [sign_extend(element, 32) for element in data]
-#data_int = [binary_to_unsigned_int(element) for element in data]
-data_int = [twos_complement_to_signed_int(element) for element in data]
+data = [element for element in data]
+data_int = [float(binary_to_unsigned_int(element))/float(2**17) for element in data]
+#data_int = [twos_complement_to_signed_int(element) for element in data]
 
 plt.plot(time,data_int)
 plt.show()
