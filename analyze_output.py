@@ -12,15 +12,28 @@ def twos_complement_to_signed_int(bit_string):
         signed_int = int(bit_string, 2)
     return signed_int
 
+def binary_to_unsigned_int(bit_string):
+    return int(bit_string, 2)
+
+def sign_extend(bit_string, new_length):
+    current_length = len(bit_string)
+    if current_length >= new_length:
+        return bit_string
+    sign_bit = bit_string[0]
+    extension = sign_bit * (new_length - current_length)
+    return extension + bit_string
+
 vcd = VCDVCD('signals.vcd')
 
 out = vcd['CIC_tb.d_out[30:0]']
 tv = out.tv
 
-time = [row[0] for row in tv]
+time = [float(row[0])*float(vcd.timescale["timescale"]) for row in tv]
 data = [row[1] for row in tv]
 
 data = ['0' if element == 'x' else element for element in data]
+data = [sign_extend(element, 32) for element in data]
+#data_int = [binary_to_unsigned_int(element) for element in data]
 data_int = [twos_complement_to_signed_int(element) for element in data]
 
 plt.plot(time,data_int)

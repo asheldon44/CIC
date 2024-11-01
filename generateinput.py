@@ -4,14 +4,14 @@ from scipy.signal import butter, filtfilt
 
 # Parameters
 fs = 16e6  # Sampling frequency (16 MHz)
-f = 100e3  # Sine wave frequency (100 kHz)
-duration = 1e-3  # Duration of the signal (1 ms)
+f = 1e3  # Sine wave frequency (1 kHz)
+duration = 10e-3  # Duration of the signal (1 ms)
 
 # Time array
 t = np.arange(0, duration, 1/fs)
 
 # Generate sine wave
-sine_wave = 0.5 * np.sin(2 * np.pi * f * t) + 0.5
+sine_wave = 0.25 * np.sin(2 * np.pi * f * t) + 0.5
 
 # Delta-Sigma Modulation
 integrator = 0

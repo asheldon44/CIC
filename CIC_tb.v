@@ -44,7 +44,7 @@ module CIC_tb;
 			x_read <= $fscanf(x_in,"%d\n",d_in);
 			@(posedge clk);
 		end
-		repeat(16000) @(posedge clk);
+		repeat(5) @(posedge clk);
 		$fclose(x_in);
 		$finish();
 	end

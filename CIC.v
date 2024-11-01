@@ -90,7 +90,7 @@ reg d_clk_tmp;
 			d_d7 <= 0;
 			d_d8 <= 0;
 			d_d9 <= 0;
-			d_out <= 8'b0;
+			d_out <= 31'b0;
 		end else
 		begin
 			if (v_comb)
@@ -112,7 +112,7 @@ reg d_clk_tmp;
 
 				d10 <= d9 - d_d9;
 				
-				d_out <= d10 >>> (width - 8);
+				d_out <= d10 >>> (width - 31);
 			end
 		end
 	end								
