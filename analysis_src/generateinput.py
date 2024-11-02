@@ -5,7 +5,7 @@ from scipy.signal import butter, filtfilt
 # Parameters
 fs = 16e6  # Sampling frequency (16 MHz)
 f = 1e3  # Sine wave frequency (1 kHz)
-duration = 10e-3  # Duration of the signal (1 ms)
+duration = 10e-3  # Duration of the signal (10 ms)
 
 amp = 0.5  # Amplitude of the sine wave
 offset = 0.5  # Offset of the sine wave

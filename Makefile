@@ -4,7 +4,7 @@ cwd = ${shell pwd}
 OPT=
 
 sim:
-	mkdir data
+	mkdir -p data
 	python ./analysis_src/generateinput.py
 	iverilog -o ./data/CIC.vvp ./verilog_src/CIC_tb.v 
 	vvp ./data/CIC.vvp
@@ -14,7 +14,7 @@ gtk:
 	gtkwave ./data/signals.vcd
 
 clean:
-	rm ./data/CIC.vvp
-	rm ./data/signals.vcd
-	rm ./data/bitstream.txt	
+	rm -f ./data/CIC.vvp
+	rm -f ./data/signals.vcd
+	rm -f ./data/bitstream.txt	
 	rm -rf ./data
